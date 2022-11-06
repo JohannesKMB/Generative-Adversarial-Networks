@@ -1,27 +1,13 @@
-# Product Name
-> Short blurb about what your product does.
+# Generative Adversarial Networks
+> Presented here are some GAN architectures from my Master Thesis that generate MNIST and CelebA data and that solve Inpainting Problems.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
 
-One to two paragraph statement about your product and what it does.
+Generative Adversarial Networks pose a powerful tool to learn distributions of data and are "the most interesting idea in machine learning since the last ten years" according to Yann LeCun \footnote{\url{https://medium.com/thecyphy/gans-what-and-where-b377672283c5}}. A Generative Adversarial Network (GAN) uses at its core the idea to let two neural networks compete against each other as players in a minimum-maximum (minmax or minimax) optimization game.\\
+The game consists of two players, namely the \textit{generator} $G$ and the \textit{discriminator} $D$. For a given data set, the generator takes samples from a random probability distribution as input and produces fake data that is supposed to be as "similar" as possible to the real data. We will define later, what "similar" means. The discriminator takes as input both real and generated fake data and tries to discern, whether its input was indeed real or not. We can think of the generator as an art forger who tries to copy the paintings of an artist and we can think of the discriminator as the detective who examines the authenticity of both real and forged paintings. During the game, the forger and the detective become better at their function until the forger can produce perfect forgeries and the detective cannot tell anymore, whether the paintings are real or not. These players are usually represented by two neural networks and we train both the generator and the discriminator in an alternating fashion until they reach an equilibrium. The architecture of these networks is itself a hyper parameter or variable that can be tuned in order to achieve a better game. This is why a GAN should rather be thought of as a game theoretical concept. For the purpose of this thesis, we will assume feed-forward neural networks as \textit{multi-layer perceptrons} (MLP) if not otherwise stated.\\
+GANs are widely used in the field of image generation. An impressive, state of the art GAN that has been trained sufficiently on human faces can be seen at\\ \url{www.thispersondoesnotexist.com}, which is based on the work of \cite{karras2020analyzing}. Lacking the same computational resources, we tried to accomplish a similar result which is showcased in Figure \ref{celebafaces}. In fact, GANs are not only limited to generating human faces, but are seemingly applicable to a limitless variety of data structures. This is showcased on the websites like \url{www.thiscatdoesnotexist.com}, \url{www.thischemicaldoesnotexist.com} or \url{www.thismapdoesnotexist.com}. It is well-known and confirmed by us, that GANs are volatile to the chosen hyperparameters and thus typically hard to train.
 
 ![](header.png)
 
-## Installation
-
-OS X & Linux:
-
-```sh
-npm install my-crazy-module --save
-```
-
-Windows:
-
-```sh
-edit autoexec.bat
-```
 
 ## Usage example
 
@@ -38,20 +24,6 @@ make install
 npm test
 ```
 
-## Release History
-
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
 
 ## Meta
 
@@ -61,13 +33,6 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 
 [https://github.com/yourname/github-link](https://github.com/dbader/)
 
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
 
 <!-- Markdown link & img dfn's -->
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
