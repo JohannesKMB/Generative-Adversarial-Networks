@@ -9,9 +9,9 @@ The game consists of two players, namely the generator $G$ and the discriminator
 ![mnist_gen](./Pictures/gen_cond_mnist3.png)
 for the celebA dataset, the following architecture was used:
 for the generator
-![CelebA](./Pictures/celebgen.png)
+![CelebA](./Pictures/celebgen.jpg)
 and for the discriminator
-![CelebA_d](./Pictures/celebdisc.png)
+![CelebA_d](./Pictures/celebdisc.jpg)
 with the result
 ![CelebA_g](./Pictures/gen_celeba.png)
 
@@ -19,11 +19,11 @@ with the result
 The problem consists of filling a missing square in a picture with probable data. This is achieved by a combination of a conditional GAN (cGAN) and a preliminary conditional net.
 [![MNIST_inp_x][MNIST_inp_y][MNIST_inp_cy]]
 discriminator
-![SiC_d](./Pictures/disc_stein.png)
+![SiC_d](./Pictures/disc_stein.jpg)
 and for the generator
-![SiC_d](./Pictures/gen_stein.png)
+![SiC_d](./Pictures/gen_stein.jpg)
 and with the conditional net
-![CelebA](./Pictures/con_stein.png)
+![CelebA](./Pictures/con_stein.jpg)
 
 ## Meta
 
