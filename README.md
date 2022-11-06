@@ -17,7 +17,7 @@ with the result
 
 ## Inpainting 
 The problem consists of filling a missing square in a picture with probable data. This is achieved by a combination of a conditional GAN (cGAN) and a preliminary conditional net.
-[![MNIST_inp_x][MNIST_inp_y][MNIST_inp_cy]]
+![MNIST_inp_x] | ![MNIST_inp_y] | ![MNIST_inp_cy]
 discriminator
 ![SiC_d](./Pictures/disc_stein.jpg)
 and for the generator
