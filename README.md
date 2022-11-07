@@ -70,20 +70,41 @@ as usual. An example for these generated images can be seen below, where we can 
 
 <img src="./Pictures/gen_inp_mnist.png" alt="drawing" width="600"/>
 
+The cropped-out space has been filled by the network meaningfully.
 
-
+#SiC Diamonts
 
 This can be a useful application for image data with artifacts, where we replace the artifacts with generated patches. A real-world application of this can be seen next.
 A series of multi-scale 3D images has been acquired by synchrotron
 micro-computed tomography at the SLS beamline TOMCAT. The material consists of a composite ("SiC Diamonds") obtained by
 microwave sintering of silicon and diamonds, see \cite{vaucher2007line}.
 We consider in our experiments the SiC Diamonds images with a voxel
-spacing of $1.625$ {\textmu}m and crop several 2D slices of the size $600 \times 600$ pixels.
-From this image data, we randomly select 32x32 pixel patches and crop out 18x18 pixel rectangles with $f_{crop}$ in order to produce the training data, see Figures
+spacing of $1.625$ micrometers and crop several 2D slices of the size $600 \times 600$ pixels.
+From this image data, we randomly select 32x32 pixel patches and crop out 18x18 pixel rectangles with $f_{crop}$ in order to produce the training data below.
+
+<img src="./Pictures/slice24.png" alt="drawing" width="400"/>
+
+Example CT image of the SiC diamonds.
+
+<img src="./Pictures/3_3.png" alt="drawing" width="600"/>
+
+test
+
+<img src="./Pictures/gen_stone.png" alt="drawing" width="600"/>
+
+<img src="./Pictures/3_2.png" alt="drawing" width="600"/>
+
+<img src="./Pictures/gen1.png" alt="drawing" width="600"/>
+
+<img src="./Pictures/3_2.png" alt="drawing" width="600"/>
+
+<img src="./Pictures/gen2.png" alt="drawing" width="600"/>
 
 
+It is also possible to take the mean and calculate the standard deviation of the generated images to allow for quantification of the uncertainty. This can be seen below, where we took the mean and calculated the standard deviation over a batch of 5000 generated samples. This allows us to gain more insights about the data. Assuming that the generator correctly learned the data distribution, we can judge the uniqueness of the solution for this inverse problem by the standard deviation of the generated samples.
 
-It is also possible to take the mean and calculate the standard deviation of the generated images to allow for quantification of the uncertainty. This can be seen in Figure \ref{stone_std}, where we took the mean and calculated the standard deviation over a batch of 5000 generated samples. This allows us to gain more insights about the data. Assuming that the generator correctly learned the data distribution, we can judge the uniqueness of the solution for this inverse problem by the standard deviation of the generated samples.
+<img src="./Pictures/uncertainties.png" alt="drawing" width="600"/>
+
 
 
 ## GAN Architectures
