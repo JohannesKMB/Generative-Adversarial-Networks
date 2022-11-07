@@ -45,7 +45,7 @@ Both $\omega$ and $\theta$ are iteratively updated such that the probability dis
 After a perfect game, the discriminator $D$ will be unable to discern, whether $x$ is generated or not, i.e. we have $D(x)=\dfrac{1}{2}$ for both generated and real $x$ and we can virtually sample from the unknown $\mu$ by  sampling from $G(Z)$ instead.
 
 ## Inpainting 
-In this experiment, we want to solve an inpainting problem with a cGAN. For some image data $x \in \mathbb{R}^{m\times n},\ m,\ n \in \mathbb{N}$, we define the operator $y=f_{crop}(x) = x_{i:j=0}$, where for some length $l\in\{1,\ldots,\min(m,n)-1\}$, we set a rectangle $[i,i+l]\times[j,j+l],\ i\in\{0,\ldots,m-l\},\ j\in\{0,\ldots,n-l\}$ of the image $x$ to zero and pass it to a conditioning network $C_\theta: \mathbb{R}^{m\times n}\to\mathbb{R}^{l\times l}$, which is a convolutional neural network. An example of this can be seen below with MNIST image data. The idea to use $C_\theta$ was inspired by \cite{ardizzone2020conditional} and the hope is that this network can capture global semantic features of the image.
+In this experiment, we want to solve an inpainting problem with a cGAN. For some image data $x \in \mathbb{R}^{m\times n},\ m,\ n \in \mathbb{N}$, we define the operator $y=f_{crop}(x) = x_{i:j=0}$, where for some length $l\in\{1,\ldots,\min(m,n)-1\}$, we set a rectangle $[i,i+l]\times[j,j+l],\ i\in\{0,\ldots,m-l\},\ j\in\{0,\ldots,n-l\}$ of the image $x$ to zero and pass it to a conditioning network $C_\theta: \mathbb{R}^{m\times n}\to\mathbb{R}^{l\times l}$, which is a convolutional neural network. An example of this can be seen below with MNIST image data. The idea to use $C_\theta$ was inspired by [Ardizzone et al., 2020](https://arxiv.org/pdf/2105.02104.pdf) and the hope is that this network can capture global semantic features of the image.
 
 ![MNIST_inp_x]  ![MNIST_inp_y]  ![MNIST_inp_cy]
 
@@ -72,40 +72,44 @@ as usual. An example for these generated images can be seen below, where we can 
 
 The cropped-out space has been filled by the network meaningfully.
 
-#SiC Diamonts
+### SiC Diamonds
 
 This can be a useful application for image data with artifacts, where we replace the artifacts with generated patches. A real-world application of this can be seen next.
 A series of multi-scale 3D images has been acquired by synchrotron
 micro-computed tomography at the SLS beamline TOMCAT. The material consists of a composite ("SiC Diamonds") obtained by
-microwave sintering of silicon and diamonds, see \cite{vaucher2007line}.
+microwave sintering of silicon and diamonds, see [Vaucher et al., 2007](https://www.semanticscholar.org/paper/On-line-tools-for-microscopic-and-macroscopic-of-Vaucher-Unifantowicz/49285bdfb20d2429791f79ad601216e0c5d6acb2).
 We consider in our experiments the SiC Diamonds images with a voxel
 spacing of $1.625$ micrometers and crop several 2D slices of the size $600 \times 600$ pixels.
 From this image data, we randomly select 32x32 pixel patches and crop out 18x18 pixel rectangles with $f_{crop}$ in order to produce the training data below.
 
 <img src="./Pictures/slice24.png" alt="drawing" width="400"/>
 
-Example CT image of the SiC diamonds.
+Example CT image of the SiC diamonds. Only one image is necessary for training.
 
-<img src="./Pictures/3_3.png" alt="drawing" width="600"/>
+<img src="./Pictures/3_3.PNG" alt="drawing" width="600"/>
 
-test
+Patch $x$ (left), cropped patch $y$ (centre), and output of the conditional net $C_\theta(y)$ (right).
 
 <img src="./Pictures/gen_stone.png" alt="drawing" width="600"/>
 
-<img src="./Pictures/3_2.png" alt="drawing" width="600"/>
+Generated inpaintings for the patch.
+
+More Examples:
+
+<img src="./Pictures/3_2.PNG" alt="drawing" width="600"/>
 
 <img src="./Pictures/gen1.png" alt="drawing" width="600"/>
 
-<img src="./Pictures/3_2.png" alt="drawing" width="600"/>
+<img src="./Pictures/3_2.PNG" alt="drawing" width="600"/>
 
 <img src="./Pictures/gen2.png" alt="drawing" width="600"/>
 
 
 It is also possible to take the mean and calculate the standard deviation of the generated images to allow for quantification of the uncertainty. This can be seen below, where we took the mean and calculated the standard deviation over a batch of 5000 generated samples. This allows us to gain more insights about the data. Assuming that the generator correctly learned the data distribution, we can judge the uniqueness of the solution for this inverse problem by the standard deviation of the generated samples.
 
-<img src="./Pictures/uncertainties.png" alt="drawing" width="600"/>
+<img src="./Pictures/uncertainties.PNG" alt="drawing" width="700"/>
 
-
+Cropped patch $y$ (left), mean over generated samples (centre), and standard deviation of the generated samples (right).
 
 ## GAN Architectures
 
