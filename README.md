@@ -101,7 +101,7 @@ More Examples:
 
 <img src="./Pictures/gen1.png" alt="drawing" width="600"/>
 
-<img src="./Pictures/3_2.PNG" alt="drawing" width="600"/>
+<img src="./Pictures/3_1.PNG" alt="drawing" width="600"/>
 
 <img src="./Pictures/gen2.png" alt="drawing" width="600"/>
 
